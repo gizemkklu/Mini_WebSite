@@ -1,0 +1,17 @@
+﻿@using WebApplication7.Models
+@model List<Category>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="list-group">
+        @foreach (var cty in Model)
+        {
+            <a href="#" class="list-group-item list-group-item-action">@cty.Name</a>
+        }
+    </div>
+</body>
+</html>

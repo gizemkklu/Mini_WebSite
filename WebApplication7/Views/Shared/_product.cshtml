@@ -1,0 +1,24 @@
+﻿@using WebApplication7.Models
+@model Product
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="card mb-2">
+        <img class="card-img-top" src="~/images/@Model.ImageUrl">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Description</p>
+            <a href="/product/details/@Model.ProductId" class="btn btn-primary btn-sm">incele</a>
+            <a href="/product/edit/@Model.ProductId" class="btn btn-primary btn-sm">Düzenle</a>
+            <form method="post" action="/product/delete" style="display:inline-block;">
+                <input type="hidden" name="ProductId" value="@Model.ProductId"/>
+                <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

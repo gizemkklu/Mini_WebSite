@@ -1,0 +1,18 @@
+﻿@using WebApplication7.Models
+@model List<Category>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="list-group">
+        <a href="/product/list" class="list-group-item list-group-item-action">Tüm Kategoriler</a>
+        @foreach (var cty in Model)
+        {
+            <a href="/product/list/@cty.CategoryId" class="list-group-item list-group-item-action @(ViewBag.SelectedCategory == cty.CategoryId.ToString()?"active":"")">@cty.Name</a>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@using WebApplication7.ProductViewModels
+@model ProductViewModel
+
+@{
+    var products = Model.Product;
+    //var categories = Model.categories;
+    var popularClass = Model.Product.Count > 2 ? "populer" : "";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+@section Categories{
+    @await Component.InvokeAsync("Categories")
+}
+@if (products.Count == 0)
+{
+    @await Html.PartialAsync("_noproduct")
+}
+else
+{
+    <div class="row">
+        @foreach (var product in products)
+        {
+            <div class="col-md-4">
+                @await Html.PartialAsync("_product",product)
+            </div>
+        }
+    </div>
+}
